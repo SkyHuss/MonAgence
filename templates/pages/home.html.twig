@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Notre agence' %}
+
+{% block body %}
+
+    <div class="jumbotron text-center">
+        <h1>Agence lorem ipsum</h1>
+        <p>Arya Stark est née à Winterfell et est le troisième enfant d'Eddard et Catelyn Stark. Elle grandit dans la rivalité avec sa sœur ainée, Sansa, et proche de Jon Snow, le fils bâtard d'Eddard. Lorsque son père est nommé Main du RoiNote 1 de Robert Baratheon, Arya doit l'accompagner à la capitale du royaume, Port-Réal. À cette occasion, Jon Snow lui offre en cachette une épée nommée Aiguille. Lors du long voyage qui la conduit à Port-Réal, elle se lie d'amitié avec un jeune apprenti-boucher avec qui elle s'entraîne au maniement de l'épée. Surpris lors de ces entraînements par Sansa et le prince Joffrey Baratheon, elle a une violente altercation avec ce dernier au cours de laquelle il est blessé par Nymeria. Furieuse contre les loups géants qui ont blessé son fils, la reine Cersei Lannister ordonne la mise à mort de Nymeria. Cette dernière ayant fui, c'est Lady, le loup géant de Sansa, qui est mis à mort, ce qui creuse un peu plus le fossé entre les deux sœurs. Arrivé à Port-Réal, son père découvre Aiguille et ses entraînements secrets. Il décide alors d'engager un bretteur du nom de Syrio Forel pour apprendre à Arya l'art de se battre.</p>
+    </div>
+    <div class="container">
+        <h2>Les derniers biens</h2>
+            <div class="row flex">
+                {% for property in properties %}
+                    <div class="col-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                                </h5>
+                                <p class="card-text">{{ property.city }} ({{ property.postalCode }})</p>
+                                <div class="text-primary" style="font-weight: bold; font-size: 2rem">{{ property.getFormattedPrice }} €</div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor  %}
+            </div>
+    </div>
+{% endblock %}
