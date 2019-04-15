@@ -17,11 +17,12 @@ class UserFixtures extends Fixture
         $this->encoder = $encoder;
     }
 
+
     public function load(ObjectManager $manager)
     {
         $user = new User();
-        $user->setUsername('skyhuss');
-        $user->setPassword($this->encoder->encodePassword($user, 'skyhuss'));
+        $user->setUsername('michel');
+        $user->setPassword($this->encoder->encodePassword($user, 'michel'));
         $manager->persist($user);
 
         $manager->flush();
